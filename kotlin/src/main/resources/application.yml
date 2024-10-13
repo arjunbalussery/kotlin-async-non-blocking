@@ -1,0 +1,28 @@
+logging:
+  level:
+    r2dbc: DEBUG
+spring:
+  jooq:
+    sql-dialect: postgres
+  r2dbc:
+    url: r2dbc:postgresql://postgres:5432/postgres
+    username: postgres
+    password: pass123
+    host: postgres
+    database: postgres
+    port: 5432
+    pool:
+      enabled: true
+      initial-size: 20
+      max-size: 20
+      maxAcquireTime: 30s
+      idle-timeout: 10s
+      max-life-time: 30m
+
+  flyway:
+      baseline-on-migration: false
+      url: jdbc:postgresql://postgres:5432/postgres
+      location: classpath:db/migration
+      user: postgres
+      password: pass123
+
